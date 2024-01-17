@@ -10,4 +10,4 @@ https://www.youtube.com/watch?v=-m7ZaHhkDAc&list=PLNEAWvYbJJ9kZpaIg2RfzAc_KZixBg
 Assets utilizados
 https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
 
-version unity 2022.3.3f1
+version unity 2022.3.8f1
