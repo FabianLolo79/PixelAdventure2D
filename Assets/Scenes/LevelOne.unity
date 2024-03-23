@@ -1856,6 +1856,8 @@ MonoBehaviour:
   betterJump: 1
   fallMultiplier: 0.5
   lowJumpMultiplier: 1
+  spriteRenderer: {fileID: 587028685}
+  animator: {fileID: 587028684}
 --- !u!70 &587028690
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

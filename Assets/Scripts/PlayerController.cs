@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
 
     public float lowJumpMultiplier = 1.0f;
 
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
 
     private void Awake()
     {
@@ -32,14 +35,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
             _rbPlayer.velocity = new Vector3(runSpeed, _rbPlayer.velocity.y);
+            spriteRenderer.flipX = false;
+            animator.SetBool("Run", true);
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
             _rbPlayer.velocity = new Vector3(-runSpeed, _rbPlayer.velocity.y);
+            spriteRenderer.flipX = true;
+            animator.SetBool("Run", true);
         }
         else
         {
             _rbPlayer.velocity = new Vector2(0, _rbPlayer.velocity.y);
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetKey("space") && Checkground.isGrounded)
@@ -47,7 +55,17 @@ public class PlayerController : MonoBehaviour
             _rbPlayer.velocity = new Vector2(_rbPlayer.velocity.x, JumpSpeed);
         }
 
-        if(betterJump)
+        if (Checkground.isGrounded == false)
+        {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Run", false);
+        }
+        if (Checkground.isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+        if (betterJump)
         {
             if (_rbPlayer.velocity.y < 0)
             {
